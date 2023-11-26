@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms'
+import { User } from 'src/app/models/user';
+import { UsuarioService } from 'src/app/shared/usuario.service';
 
 @Component({
   selector: 'app-form-register',
@@ -10,13 +12,14 @@ export class FormRegisterComponent {
 
   public formulario: FormGroup
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, public usuarioService: UsuarioService){
     this.buildForm()
   }
 
 public registrar(){
-  const user = this.formulario.value
-  console.log(user);
+  let user = this.formulario.value
+  let newUser = new User(user.nombre, user.apellidos, user.email, user.url, user.contraseña)
+  this.usuarioService.register(newUser).subscribe((respuesta) => console.log(respuesta))
 }
 
 private buildForm(){

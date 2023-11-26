@@ -16,11 +16,12 @@ export class UsuarioService {
     this.logueado = false
   }
 
-  register(user: User):Observable<object>{
+  public register(user: User):Observable<object>{
     return this.http.post(this.url + "/register", user)
+    
   }
 
-  login (user: User){
+  public login (user: User):Observable<object>{
     return this.http.post(this.url + "/login", user)
   }
 
