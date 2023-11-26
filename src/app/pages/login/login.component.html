@@ -1,0 +1,25 @@
+<div class="contPrinc">
+    <div class="contForm">
+        <form #formUsuario="ngForm" (ngSubmit)="mandaForm(formUsuario)" class="formulario">
+            <div class="form-group">
+                <label>Correo</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email" #emailId="ngModel" [ngClass]="{ 'is-invalid': (emailId.touched || emailId.dirty) && emailId.invalid}" email required>
+                <div *ngIf="(emailId.touched || emailId.dirty) && emailId.invalid"  class="invalid-feedback">
+                    <div *ngIf="emailId.errors.required" class="feedback">La direccion de correo es obligatoria</div>
+                    <div *ngIf="emailId.errors.email" class="feedback">Introduce una direccion de correo valida</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="usuario.password" #passwordId="ngModel" [ngClass]="{ 'is-invalid': (passwordId.dirty || passwordId.touched) && passwordId.invalid}" minlength="8" required>
+                <div *ngIf="(passwordId.dirty || passwordId.touched) && passwordId.invalid" class="invalid-feedback">
+                    <div *ngIf="passwordId.errors.required" class="feedback">La contraseña es obligatoria</div>
+                    <div *ngIf="passwordId.errors.minlength" class="feedback">La contraseña debe tener al menos 8 caracteres</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" [disabled]="formUsuario.invalid">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

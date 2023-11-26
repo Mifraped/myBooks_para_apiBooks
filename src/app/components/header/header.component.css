@@ -1,0 +1,29 @@
+.contPrinc {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #ff9671;
+  font-family: var(--letra);
+  padding-left: 75px;
+  padding-right: 200px;
+}
+.contTitul {
+  width: 50%;
+}
+.contEnlaces {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+a {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.active {
+  transform: scale(1.25);
+  text-decoration: underline 2px black;
+}

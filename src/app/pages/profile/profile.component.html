@@ -1,0 +1,34 @@
+<div class="datosPerfil">
+  <div class="fotoUsuario" id="infoUsuario">
+    <img [src]="defaultUser.photo" alt="img" class="foto" />
+    <h2 class="nombreUsuario text-black" id="nombreUsuario">
+      {{ defaultUser.name }} {{ defaultUser.last_name }}
+    </h2>
+    <div class="data">
+      <h4 class="nombre">Nombre:</h4>
+      <h6 class="valorNombre" id="valNom">{{ defaultUser.name }}</h6>
+    </div>
+    <div class="data">
+      <h4 class="apellido">Apellidos:</h4>
+      <h6 class="valorApellido" id="valApell">{{ defaultUser.last_name }}</h6>
+    </div>
+    <div class="data">
+      <h4 class="correo">Correo:</h4>
+      <h6 class="valorCorreo" id="valEmail">{{ defaultUser.email }}</h6>
+    </div>
+  </div>
+  <div class="formulario">
+    <h1 class="editar text-black">Editar datos</h1>
+    <input type="text" placeholder="Nombre" #input1 />
+    <input type="text" placeholder="Apellidos" #input2 />
+    <input type="email" placeholder="Correo" #input3 />
+    <input type="text" placeholder="Url" #input4 />
+    <button
+      class="btn btn-danger"
+      type="button"
+      on-click="imprimeNombre(); editaUsuario(input1, input2, input3, input4)"
+    >
+      Modificar
+    </button>
+  </div>
+</div>

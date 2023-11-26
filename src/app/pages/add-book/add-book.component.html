@@ -1,0 +1,20 @@
+<div class="contPrinc">
+  <div class="contForm d-flex justify-content-center">
+    <div class="formulario">
+      <h1 class="h1form">Introduce un nuevo libro</h1>
+      <input type="text" placeholder="Titulo" #titulo />
+      <input type="text" placeholder="Genero" #genero />
+      <input type="text" placeholder="Autor" #autor />
+      <input type="text" placeholder="Precio" #precio />
+      <input type="text" placeholder="Url de portada" #url />
+      <input type="text" placeholder="Identificador del libro" #idLibro />
+      <button
+        class="btn btn-danger"
+        type="button"
+        (click)="anyade(titulo, genero, autor, precio, url, idLibro)"
+      >
+        Añadir
+      </button>
+    </div>
+  </div>
+</div>

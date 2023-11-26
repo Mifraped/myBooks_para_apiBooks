@@ -1,0 +1,44 @@
+<div class="contPrinc">
+  <div class="buscador">
+    <input
+      type="text"
+      placeholder="Busca un libro por su referencia"
+      #ref
+      (input)="buscaLibro(ref)"
+    />
+    <img src="../../../assets/img/lupa.png" alt="img" id="lupa" />
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="cargando = true; muestraLibros(); ref.value = ''"
+    >
+      Mostrar todos
+    </button>
+  </div>
+  <div class="contTarg">
+    <ng-container *ngIf="cargando; else cargado"> </ng-container>
+    <ng-template #cargado>
+      <ng-container *ngIf="!buscando; else otro">
+        <ng-container *ngIf="bookService.libros.length > 0; else esFalso">
+          <app-card
+            [libroPadre]="libro"
+            [even]="even"
+            *ngFor="let libro of bookService.libros; let even = even"
+            (eventoElimTarg)="eliminaTargeta($event)"
+          ></app-card>
+        </ng-container>
+        <ng-template #esFalso>
+          <h1 class="text-black esFalso">
+            Lo sentimos, no hay libros disponibles
+          </h1>
+        </ng-template>
+      </ng-container>
+      <ng-template #otro>
+        <app-card
+          [libroPadre]="bookService.libros"
+          (eventoElimTarg)="eliminaTargeta($event)"
+        ></app-card>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

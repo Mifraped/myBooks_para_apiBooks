@@ -1,0 +1,35 @@
+.contPrinc{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url("../../../assets/img/pngtree-large-library-has-a-ladder-picture-image_2574110.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 200px;
+}
+.contForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grisTrans);
+    height: 350px;
+    width: 500px;
+    padding: 50px;
+    border-radius: 20px;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+label{
+    color: black;
+}
+.feedback{
+    color: red;
+}

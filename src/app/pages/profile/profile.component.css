@@ -1,0 +1,77 @@
+.datosPerfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/img/pngtree-large-library-has-a-ladder-picture-image_2574110.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+.fotoUsuario {
+  background-color: var(--grisTrans);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  width: 400px;
+  gap: 40px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.fotoUsuario div {
+  display: flex;
+  align-items: flex-end;
+  align-self: self-start;
+  padding-left: 70px;
+  color: white;
+}
+.foto {
+  width: 70%;
+  border-radius: 40%;
+}
+h1 {
+  font-size: 35px;
+}
+h2 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 15px;
+  width: 100%;
+  margin-left: 10px;
+}
+.formulario {
+  background-color: var(--grisTrans);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  width: 400px;
+  gap: 50px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+input {
+  height: 30px;
+  width: 250px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+input:focus {
+  outline: none;
+}
+button {
+  height: 40px;
+  width: 175px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
