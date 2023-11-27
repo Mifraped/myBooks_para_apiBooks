@@ -21,8 +21,11 @@ export class UsuarioService {
     
   }
 
-  public login (user: User):Observable<object>{
+  public login(user: User):Observable<object>{
     return this.http.post(this.url + "/login", user)
   }
 
+  public edit(user: User):Observable<object>{
+    return this.http.put(this.url + "/usuario",user)
+  }
 }

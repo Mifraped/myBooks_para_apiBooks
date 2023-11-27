@@ -1,20 +1,20 @@
 <div class="datosPerfil">
   <div class="fotoUsuario" id="infoUsuario">
-    <img [src]="defaultUser.photo" alt="img" class="foto" />
+    <img [src]="usuarioActual.photo" alt="img" class="foto" />
     <h2 class="nombreUsuario text-black" id="nombreUsuario">
-      {{ defaultUser.name }} {{ defaultUser.last_name }}
+      {{ usuarioActual.name }} {{ usuarioActual.last_name }}
     </h2>
     <div class="data">
       <h4 class="nombre">Nombre:</h4>
-      <h6 class="valorNombre" id="valNom">{{ defaultUser.name }}</h6>
+      <h6 class="valorNombre" id="valNom">{{ usuarioActual.name }}</h6>
     </div>
     <div class="data">
-      <h4 class="apellido">Apellidos:</h4>
-      <h6 class="valorApellido" id="valApell">{{ defaultUser.last_name }}</h6>
+      <h4 class="apellido">Apellido:</h4>
+      <h6 class="valorApellido" id="valApell">{{ usuarioActual.last_name }}</h6>
     </div>
     <div class="data">
       <h4 class="correo">Correo:</h4>
-      <h6 class="valorCorreo" id="valEmail">{{ defaultUser.email }}</h6>
+      <h6 class="valorCorreo" id="valEmail">{{ usuarioActual.email }}</h6>
     </div>
   </div>
   <div class="formulario">

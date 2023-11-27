@@ -26,7 +26,7 @@ export class BooksComponent {
   public muestraLibros() {
     this.bookService.getAll().subscribe((resp: Respuesta) => {
       if (resp.error) {
-        this.toastr.error(`${resp.message}`);
+        // this.toastr.error(`${resp.message}`);
         this.cargando = false;
       } else {
         this.bookService.libros = resp.data;

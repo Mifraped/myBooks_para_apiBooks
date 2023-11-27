@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/shared/usuario.service';
 import { Respuesta } from 'src/app/models/respuesta';
 import { RespuestaUser } from 'src/app/models/respuesta-user';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
 
   public usuario: User
 
-  constructor(private usuarioService: UsuarioService, private router: Router){
+  constructor(private usuarioService: UsuarioService, private router: Router, private toaster: ToastrService){
     this.usuario = new User()
   }
 
@@ -23,7 +24,7 @@ export class LoginComponent {
     this.usuarioService.login(this.usuario).subscribe((respuesta: RespuestaUser) => {
       
       if(respuesta.error){
-        console.log(respuesta)
+        this.toaster.error(respuesta.message)
       }else{
         this.usuarioService.logueado = true
         this.usuarioService.user = respuesta.data
