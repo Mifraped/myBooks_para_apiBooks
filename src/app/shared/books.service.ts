@@ -3,6 +3,7 @@ import { Book } from '../models/book';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +13,14 @@ export class BooksService {
 
   private url = 'http://localhost:3000/books';
 
-  constructor(private toastr: ToastrService, private http: HttpClient) {}
+  constructor(private toastr: ToastrService, private http: HttpClient, private usuarioService: UsuarioService) {}
 
   public getAll(): Observable<object> {
-    return this.http.get(this.url);
+    return this.http.get(this.url + `?id_user=${this.usuarioService.user.id_user}`);
   }
 
   public getOne(id_libro: number): Observable<object> {
-    return this.http.get(this.url + `?id=${id_libro}`);
+    return this.http.get(this.url + `?id_user=${this.usuarioService.user.id_user}` + `&id_book=${id_libro}`);
   }
 
   public add(book: Book): Observable<object> {
