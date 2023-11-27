@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { Respuesta } from 'src/app/models/respuesta';
@@ -14,7 +15,8 @@ export class AddBookComponent {
   constructor(
     public bookService: BooksService,
     private toastr: ToastrService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) {}
 
   public anyade(titulo: HTMLInputElement, genero: HTMLInputElement, autor: HTMLInputElement, precio: HTMLInputElement, url: HTMLInputElement){
@@ -35,6 +37,7 @@ export class AddBookComponent {
           autor.value = '';
           precio.value = '';
           url.value = '';
+          this.router.navigate(["books"])
         } else {
           this.toastr.error(resp.message);
         }

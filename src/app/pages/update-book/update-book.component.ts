@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { Respuesta } from 'src/app/models/respuesta';
@@ -14,7 +15,8 @@ export class UpdateBookComponent {
   constructor(
     public bookService: BooksService,
     private toastr: ToastrService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) {}
 
   public edita(
@@ -45,6 +47,7 @@ export class UpdateBookComponent {
           precio.value = '';
           url.value = '';
           idLibro.value = '';
+          this.router.navigate(["books"])
         }
       });
   }

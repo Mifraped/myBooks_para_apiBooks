@@ -26,12 +26,17 @@ export class ProfileComponent {
       fotoInput.value ? fotoInput.value : null
     )
     newUser.id_user = this.usuarioService.user.id_user
+    nomInput.value = ""
+    apelInput.value = ""
+    corrInput.value = ""
+    fotoInput.value = ""
     this.usuarioService.edit(newUser).subscribe((respuesta: RespuestaUser) => {
       if(respuesta.error){
         this.toaster.error(respuesta.message)
       }else{
         this.toaster.success(respuesta.message)
         this.usuarioService.user = respuesta.data
+        this.usuarioActual = this.usuarioService.user
       }
     })
   }
