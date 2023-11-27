@@ -60,7 +60,7 @@ export class BooksComponent {
       if (resp.error) {
         this.toastr.error(resp.message);
       } else {
-        this.toastr.success(resp.message);
+        this.toastr.success("Libro eliminado");
         this.buscando = false;
         this.cargando = true;
         this.ref.nativeElement.value = '';

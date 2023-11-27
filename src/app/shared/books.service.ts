@@ -32,6 +32,6 @@ export class BooksService {
   }
 
   public delete(id_libro: number): Observable<object> {
-    return this.http.delete(this.url + `?id=${id_libro}`);
+    return this.http.delete(this.url + `?id_user=${this.usuarioService.user.id_user}` + `&id_book=${id_libro}`);
   }
 }
