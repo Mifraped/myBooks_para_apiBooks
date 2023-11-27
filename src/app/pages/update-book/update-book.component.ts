@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
+import { UsuarioService } from 'src/app/shared/usuario.service';
 
 @Component({
   selector: 'app-update-book',
@@ -12,7 +13,8 @@ import { BooksService } from 'src/app/shared/books.service';
 export class UpdateBookComponent {
   constructor(
     public bookService: BooksService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private usuarioService: UsuarioService
   ) {}
 
   public edita(
@@ -23,22 +25,15 @@ export class UpdateBookComponent {
     url: HTMLInputElement,
     idLibro: HTMLInputElement
   ) {
-    if (
-      titulo.value &&
-      genero.value &&
-      autor.value &&
-      precio.value &&
-      url.value &&
-      idLibro.value
-    ) {
       let nuevoLibro = new Book(
-        titulo.value,
-        genero.value,
-        autor.value,
-        Number(precio.value),
-        url.value,
-        Number(idLibro.value)
+        titulo.value ? titulo.value : null,
+        genero.value ? genero.value :  null,
+        autor.value ? autor.value :  null,
+        precio.value? Number(precio.value) : null,
+        url.value ? url.value :  null,
+        this.usuarioService.user.id_user
       );
+      nuevoLibro.id_book = Number(idLibro.value)
       this.bookService.edit(nuevoLibro).subscribe((resp: Respuesta) => {
         if (resp.error) {
           this.toastr.error(resp.message);
@@ -52,6 +47,5 @@ export class UpdateBookComponent {
           idLibro.value = '';
         }
       });
-    } else this.toastr.error('Faltan campos por rellenar');
   }
 }
