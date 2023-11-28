@@ -19,10 +19,4 @@ export class CardComponent {
   public eliminaTargeta(id_libro: number) {
     this.eventoElimTarg.emit(Number(id_libro));
   }
-
-  // public elimina(id_libro: number) {
-  //   this.bookService.delete(id_libro).subscribe((resp: Respuesta) => {
-
-  //   });
-  // }
 }

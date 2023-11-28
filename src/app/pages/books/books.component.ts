@@ -11,7 +11,6 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 export class BooksComponent {
   public cargando: boolean = true;
-  public buscando: boolean = false;
   @ViewChild('ref') ref: ElementRef;
 
   constructor(
@@ -26,12 +25,10 @@ export class BooksComponent {
   public muestraLibros() {
     this.bookService.getAll().subscribe((resp: Respuesta) => {
       if (resp.error) {
-        // this.toastr.error(`${resp.message}`);
         this.cargando = false;
       } else {
         this.bookService.libros = resp.data;
         this.cargando = false;
-        this.buscando = false;
       }
     });
   }
@@ -39,16 +36,14 @@ export class BooksComponent {
   public buscaLibro(inpRef: HTMLInputElement) {
     this.bookService
       .getOne(Number(inpRef.value))
-      .subscribe((resp: Respuesta) => {
+      .subscribe((resp: Respuesta) => {        
         if (inpRef.value) {
           if (resp.error) {
             this.toastr.error(resp.message);
           } else {
-            this.buscando = true;
             this.bookService.libros = resp.data;
           }
         } else {
-          this.buscando = false;
           this.cargando = true;
           this.muestraLibros();
         }
@@ -61,7 +56,6 @@ export class BooksComponent {
         this.toastr.error(resp.message);
       } else {
         this.toastr.success("Libro eliminado");
-        this.buscando = false;
         this.cargando = true;
         this.ref.nativeElement.value = '';
         this.bookService.libros = resp.data;

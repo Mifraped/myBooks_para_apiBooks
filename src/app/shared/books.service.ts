@@ -9,7 +9,7 @@ import { UsuarioService } from './usuario.service';
   providedIn: 'root',
 })
 export class BooksService {
-  public libros: Book | Book[] = [];
+  public libros: Book[] = [];
 
   private url = 'http://localhost:3000/books';
 

@@ -5,6 +5,6 @@ export class Respuesta {
     public error: boolean,
     public codigo: number,
     public message: string,
-    public data: Book | Book[]
+    public data: Book[]
   ) {}
 }
